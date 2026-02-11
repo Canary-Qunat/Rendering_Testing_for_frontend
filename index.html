@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canary Trading Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <h1>🐤 Canary Trading</h1>
+            </div>
+            <nav class="nav">
+                <button id="loginBtn" class="btn btn-primary">Login with Zerodha</button>
+                <button id="logoutBtn" class="btn btn-secondary" style="display: none;">Logout</button>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Welcome Section (shown when not logged in) -->
+            <section id="welcomeSection" class="welcome-section">
+                <div class="welcome-card">
+                    <h2>Welcome to Canary Trading System</h2>
+                    <p>Track your Zerodha portfolio, holdings, and positions in real-time.</p>
+                    <button id="loginBtnLarge" class="btn btn-large">Get Started - Login with Zerodha</button>
+                </div>
+            </section>
+
+            <!-- Dashboard Section (shown when logged in) -->
+            <section id="dashboardSection" class="dashboard-section" style="display: none;">
+                <!-- Profile Card -->
+                <div class="profile-card" id="profileCard">
+                    <h3>Profile</h3>
+                    <div id="profileContent">
+                        <p>Loading profile...</p>
+                    </div>
+                </div>
+
+                <!-- Portfolio Summary -->
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <h4>Total Portfolio Value</h4>
+                        <p class="value" id="totalValue">₹0.00</p>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Total P&L</h4>
+                        <p class="value" id="totalPnl">₹0.00</p>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Holdings P&L</h4>
+                        <p class="value" id="holdingsPnl">₹0.00</p>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Positions P&L</h4>
+                        <p class="value" id="positionsPnl">₹0.00</p>
+                    </div>
+                </div>
+
+                <!-- Holdings Table -->
+                <div class="data-section">
+                    <h3>Holdings (<span id="holdingsCount">0</span>)</h3>
+                    <div class="table-container">
+                        <table id="holdingsTable">
+                            <thead>
+                                <tr>
+                                    <th>Symbol</th>
+                                    <th>Quantity</th>
+                                    <th>Avg Price</th>
+                                    <th>Last Price</th>
+                                    <th>Current Value</th>
+                                    <th>P&L</th>
+                                </tr>
+                            </thead>
+                            <tbody id="holdingsBody">
+                                <tr>
+                                    <td colspan="6" class="no-data">No holdings data available</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Positions Table -->
+                <div class="data-section">
+                    <h3>Positions (<span id="positionsCount">0</span>)</h3>
+                    <div class="table-container">
+                        <table id="positionsTable">
+                            <thead>
+                                <tr>
+                                    <th>Symbol</th>
+                                    <th>Quantity</th>
+                                    <th>Avg Price</th>
+                                    <th>Last Price</th>
+                                    <th>P&L</th>
+                                    <th>Product</th>
+                                </tr>
+                            </thead>
+                            <tbody id="positionsBody">
+                                <tr>
+                                    <td colspan="6" class="no-data">No positions data available</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Refresh Button -->
+                <div class="refresh-section">
+                    <button id="refreshBtn" class="btn btn-primary">🔄 Refresh Data</button>
+                </div>
+            </section>
+
+            <!-- Error Section -->
+            <section id="errorSection" class="error-section" style="display: none;">
+                <div class="error-card">
+                    <h3>⚠️ Error</h3>
+                    <p id="errorMessage"></p>
+                    <button id="retryBtn" class="btn btn-primary">Retry</button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2026 Canary Trading System | Powered by Zerodha Kite Connect</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
