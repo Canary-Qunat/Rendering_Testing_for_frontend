@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canary Tracking System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Canary Tracking System</h1>
+        
+        <!-- Loading State -->
+        <div id="loading" class="loading">Loading...</div>
+        
+        <!-- Error State -->
+        <div id="error" class="error" style="display: none;"></div>
+        
+        <!-- Authentication Section -->
+        <div id="auth-section">
+            <div id="not-authenticated" style="display: none;">
+                <p>You are not authenticated. Please login to continue.</p>
+                <button id="login-btn">Login with Zerodha</button>
+            </div>
+            <div id="authenticated" style="display: none;">
+                <p>Logged in as: <strong id="user-name"></strong></p>
+                <button id="refresh-btn">Refresh Data</button>
+            </div>
+        </div>
+
+        <!-- Profile Section -->
+        <div id="profile-section" style="display: none;">
+            <h2>Profile</h2>
+            <table>
+                <tr>
+                    <td><strong>User ID:</strong></td>
+                    <td id="profile-user-id"></td>
+                </tr>
+                <tr>
+                    <td><strong>User Name:</strong></td>
+                    <td id="profile-user-name"></td>
+                </tr>
+                <tr>
+                    <td><strong>Email:</strong></td>
+                    <td id="profile-email"></td>
+                </tr>
+                <tr>
+                    <td><strong>Broker:</strong></td>
+                    <td id="profile-broker"></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Portfolio Summary Section -->
+        <div id="summary-section" style="display: none;">
+            <h2>Portfolio Summary</h2>
+            <table>
+                <tr>
+                    <td><strong>Total Value:</strong></td>
+                    <td>₹<span id="summary-total-value"></span></td>
+                </tr>
+                <tr>
+                    <td><strong>Total P&L:</strong></td>
+                    <td class="pnl" id="summary-total-pnl"></td>
+                </tr>
+                <tr>
+                    <td><strong>Holdings P&L:</strong></td>
+                    <td class="pnl" id="summary-holdings-pnl"></td>
+                </tr>
+                <tr>
+                    <td><strong>Positions P&L:</strong></td>
+                    <td class="pnl" id="summary-positions-pnl"></td>
+                </tr>
+                <tr>
+                    <td><strong>Holdings Count:</strong></td>
+                    <td id="summary-holdings-count"></td>
+                </tr>
+                <tr>
+                    <td><strong>Positions Count:</strong></td>
+                    <td id="summary-positions-count"></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Holdings Section -->
+        <div id="holdings-section" style="display: none;">
+            <h2>Holdings</h2>
+            <table id="holdings-table">
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Quantity</th>
+                        <th>Avg Price</th>
+                        <th>Last Price</th>
+                        <th>P&L</th>
+                    </tr>
+                </thead>
+                <tbody id="holdings-tbody">
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Positions Section -->
+        <div id="positions-section" style="display: none;">
+            <h2>Positions</h2>
+            <table id="positions-table">
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Quantity</th>
+                        <th>Avg Price</th>
+                        <th>Last Price</th>
+                        <th>P&L</th>
+                    </tr>
+                </thead>
+                <tbody id="positions-tbody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
