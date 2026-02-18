@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Backend Test</title>
+</head>
+
+<body>
+    <h1>Backend Connection Test</h1>
+    <button onclick="testBackend()">Test Backend Connection</button>
+    <pre id="output"></pre>
+
+    <script>
+        const API_BASE_URL = 'https://rendering-testing-for-backend.onrender.com';
+
+        async function testBackend() {
+            const output = document.getElementById('output');
+            output.textContent = 'Testing...\n';
+
+            try {
+                output.textContent += `Fetching from: ${API_BASE_URL}/auth/status\n`;
+
+                const response = await fetch(`${API_BASE_URL}/auth/status`);
+
+                output.textContent += `Response status: ${response.status} ${response.statusText}\n`;
+
+                const data = await response.json();
+
+                output.textContent += `Response data:\n${JSON.stringify(data, null, 2)}\n`;
+
+                output.textContent += '\n✅ Backend is working!\n';
+            } catch (error) {
+                output.textContent += `\n❌ Error: ${error.message}\n`;
+                output.textContent += `\nMake sure backend is running: uvicorn app.main:app --reload --port 8001\n`;
+            }
+        }
+
+        // Auto-test on load
+        window.onload = testBackend;
+    </script>
+</body>
+
+</html>
