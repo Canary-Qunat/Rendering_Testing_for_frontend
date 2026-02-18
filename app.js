@@ -1,5 +1,5 @@
 // Backend API URL
-const API_BASE_URL = 'http://localhost:8001';
+const API_BASE_URL = 'https://rendering-testing-for-backend.onrender.com';
 
 // DOM Elements
 const loadingEl = document.getElementById('loading');
